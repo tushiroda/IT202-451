@@ -1,0 +1,54 @@
+<table><tr><td> <em>Assignment: </em> IT202 M2 PHP-HW</td></tr>
+<tr><td> <em>Student: </em> Taeshin Ushiroda (tu34)</td></tr>
+<tr><td> <em>Generated: </em> 6/4/2023 11:17:04 PM</td></tr>
+<tr><td> <em>Grading Link: </em> <a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IT202-451-M23/it202-m2-php-hw/grade/tu34" target="_blank">Grading</a></td></tr></table>
+<table><tr><td> <em>Instructions: </em> <p>Make sure you have the dev/prod branches created before starting this assignment.</p><p><strong>Template Files</strong>&nbsp;You can find all 3 template files in this gist:&nbsp;<a href="https://gist.github.com/MattToegel/48b48377eaa1937c886b7840c449750a">https://gist.github.com/MattToegel/48b48377eaa1937c886b7840c449750a</a><br></p><p>Setup steps:</p><ol><li><code>git checkout dev</code></li><li><code>git pull origin dev</code></li><li><code>git checkout -b M2-PHP-HW</code></li></ol><p>You'll have 3 problems to save for this assignment.</p><p>Each problem you're given a template&nbsp;<strong>Do not edit anything in the template except where the comments tell you to</strong>.</p><p>The templates are done in such a way to make it easier to capture the output in a screenshot (if it's still not able to fit well, you can zoom out in your browser).</p><p>You'll copy each template into their own separate .php files, immediately git add, git commit these files (you can do it together) so we can capture the difference/changes between the templates and your additions. This part is required for full credit.</p><p>HW steps:</p><ol><li>Open VS Code at the root of your repository folder (you should see the Procfile and all from the Heroku setup)</li><li>In VS Code create a new folder/directory in public_html called M2</li><li>Create 3 new files in this new M2 folder (problem1.php, problem2.php, problem3.php)</li><li>Paste each template into their respective files</li><li><code>git add .</code></li><li><code>git commit -m "adding template baselines</code></li><li>Do the related work (you may do steps 8 and 9 as often as needed or you can do it all at once at the end)</li><li><code>git add .</code></li><li><code>git commit -m "completed hw"</code></li><li>When you're done push the branch<ol><li><code>git push origin M2-PHP-HW</code></li></ol></li><li>Go to heroku dev, and manually deploy the M2-PHP-HW branch</li><li>After it deploys go to&nbsp;<a href="https://ucid-dev.herokuapp.com/M2/problem1.php">https://ucid-dev.herokuapp.com/M2/problem1.php</a>&nbsp;(replace ucid with your ucid if you followed the setup instructions)</li><li>Update the URL to check that each problem file displays properly</li><li>Create the Pull Request with&nbsp;<strong>dev</strong>&nbsp;as base and&nbsp;<strong>M2-PHP-HW</strong>&nbsp;as compare</li><li>Create a new file in the M2 folder in VS Code called m2_submission.md</li><li>Fill out the below deliverable items, save the submission, and copy to markdown<ol><li>For this assignment you may get screenshots from your heroku dev instance, you do not need to move it to prod then come back and update it</li></ol></li><li>Paste the markdown into the m2_submission.md</li><li>add/commit/push the md file<ol><li><code>git add m2_submission.md</code></li><li><code>git commit -m "adding submission file"</code></li><li><code>git push origin M2-PHP-HW</code></li></ol></li><li>Merge the pull request from step 14</li><li>Create a new pull request with prod as base and dev as compare</li><li>Immediately create/merge/confirm, this is just to deploy it to prod and you don't need to adjust anything during this step</li><li>On your local machine sync the changes<ol><li><code>git checkout dev</code></li><li><code>git pull origin dev</code></li></ol></li><li>Submit the link to the m2_submission.md file from the prod branch to Canvas</li></ol><p><br></p></td></tr></table>
+<table><tr><td> <em>Deliverable 1: </em> Problem 1 - Only output Odd values of the Array under "Odds output" </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
+<tr><td><table><tr><td> <em>Sub-Task 1: </em> 2 Screenshots: Clearly screenshot the output of Problem 1 and show the edited code</td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Ftu34%2F2023-06-05T01.54.28image.png.webp?alt=media&token=295edff0-71b8-494f-acef-4cb36acdd789"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Output<br></p>
+</td></tr>
+<tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Ftu34%2F2023-06-05T01.55.14image.png.webp?alt=media&token=c248c567-8672-4303-b754-0b27deac03ba"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Code<br></p>
+</td></tr>
+</table></td></tr>
+<tr><td> <em>Sub-Task 2: </em> Describe how you solved the problem</td></tr>
+<tr><td> <em>Response:</em> <p>I just looped through the array using a for each loop and only<br>outputted the value if the array element was odd, using $variable % 2<br>== 1.<br><br></p><br></td></tr>
+</table></td></tr>
+<table><tr><td> <em>Deliverable 2: </em> Problem 2 - Only output the sum/total of the array values by assigning it to the $total variable (the number must end in 2 decimal places, if it ends in 1 it must have a 0 at the end) </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
+<tr><td><table><tr><td> <em>Sub-Task 1: </em> 2 Screenshots: Clearly screenshot the output of Problem 2 showing the data and show the edited code</td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Ftu34%2F2023-06-05T02.45.06image.png.webp?alt=media&token=7e57b502-b35f-46b3-8de1-f8235b7d8c62"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Code<br></p>
+</td></tr>
+<tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Ftu34%2F2023-06-05T02.45.54image.png.webp?alt=media&token=0fb844d6-0061-48e3-8455-5a2c4bdceb02"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Output<br></p>
+</td></tr>
+</table></td></tr>
+<tr><td> <em>Sub-Task 2: </em> Describe how you solved the problem</td></tr>
+<tr><td> <em>Response:</em> <p>Looped through array elements using a for each loop, adding values to a<br>total sum variable. Then used round() to round the sum to 2 decimal<br>places, and number_format to always output 2 decimal places.<br><br></p><br></td></tr>
+</table></td></tr>
+<table><tr><td> <em>Deliverable 3: </em> Problem 3 - Output the given values as positive under the "Positive Output" message (the data otherwise shouldn't change) </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
+<tr><td><table><tr><td> <em>Sub-Task 1: </em> 2 Screenshots: Clearly screenshot the output of Problem 3 showing the data and show the code</td></tr>
+<tr><td><table><tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Ftu34%2F2023-06-05T03.00.28image.png.webp?alt=media&token=d3b24c26-4b20-45d8-9634-2b223f1dc097"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Code<br></p>
+</td></tr>
+<tr><td><img width="768px" src="https://firebasestorage.googleapis.com/v0/b/learn-e1de9.appspot.com/o/assignments%2Ftu34%2F2023-06-05T03.00.14image.png.webp?alt=media&token=edd3171c-c907-4b68-9c28-539a082b5185"/></td></tr>
+<tr><td> <em>Caption:</em> <p>Output<br></p>
+</td></tr>
+</table></td></tr>
+<tr><td> <em>Sub-Task 2: </em> Describe how you solved the problem</td></tr>
+<tr><td> <em>Response:</em> <p>I saved the type of the array into the variable $type using gettype()<br>at the start of the function. Then, I just summed the values of<br>the array using a foreach loop. After, I made the total sum positive<br>using abs(), then converted it back to the original type using settype(). Finally,<br>output the final value using var_dump() to show that it&#39;s the correct data<br>type.<br><br></p><br></td></tr>
+</table></td></tr>
+<table><tr><td> <em>Deliverable 4: </em> Misc Items </td></tr><tr><td><em>Status: </em> <img width="100" height="20" src="https://user-images.githubusercontent.com/54863474/211707773-e6aef7cb-d5b2-4053-bbb1-b09fc609041e.png"></td></tr>
+<tr><td><table><tr><td> <em>Sub-Task 1: </em> Add the prod URL for problem1.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://tu34-prod.herokuapp.com/M2/problem1.php">https://tu34-prod.herokuapp.com/M2/problem1.php</a> </td></tr>
+<tr><td> <em>Sub-Task 2: </em> Add the prod URL for problem2.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://tu34-prod.herokuapp.com/M2/problem2.php">https://tu34-prod.herokuapp.com/M2/problem2.php</a> </td></tr>
+<tr><td> <em>Sub-Task 3: </em> Add the prod URL for problem3.php (remember you can assume this based on how the domain gets built (i.e., ucid-prod.herokuapp.com/...)</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://tu34-prod.herokuapp.com/M2/problem3.php">https://tu34-prod.herokuapp.com/M2/problem3.php</a> </td></tr>
+<tr><td> <em>Sub-Task 4: </em> Pull Request URL for M2-PHP-HW to dev</td></tr>
+<tr><td> <a rel="noreferrer noopener" target="_blank" href="https://github.com/TaeshinUshiroda/IT202-451/pull/4">https://github.com/TaeshinUshiroda/IT202-451/pull/4</a> </td></tr>
+<tr><td> <em>Sub-Task 5: </em> Talk about what you learned, any issues you had, how you resolve them</td></tr>
+<tr><td> <em>Response:</em> <p>Learned about the basic syntax of php and how to use the extensions<br>for php in vscode. Learned that php variables automatically set their types (like<br>in python) to fit whatever operation is being used on it. Learned that<br>everything in php is enclosed in tags, like &lt;?php&gt;. I guess a small<br>issue i had was figuring out how to debug php on vscode. Hitting<br>debug gave a list of four different options, and I didn&#39;t know what<br>they did, so I just tested wat each one did. I eventually settled<br>on the &quot;launch built-in server&quot; option, since it actually output the text in<br>the proper format in the browser.<br><br></p><br></td></tr>
+</table></td></tr>
+<table><tr><td><em>Grading Link: </em><a rel="noreferrer noopener" href="https://learn.ethereallab.app/homework/IT202-451-M23/it202-m2-php-hw/grade/tu34" target="_blank">Grading</a></td></tr></table>
