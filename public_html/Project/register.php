@@ -55,6 +55,15 @@ if (strlen($password) > 0 && $password != $confirm) {
    echo "Passwords must match";
    $hasError = true;
 }
+
+//sanitize
+$email = filter_var($email, FILTER_SANITIZE_EMAIL);
+//validate
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+   echo "Invalide email address";
+   $hasError = true;
+}
+
 if (!$hasError) {
    // echo "Welcome, $email";
    //TODO 4
