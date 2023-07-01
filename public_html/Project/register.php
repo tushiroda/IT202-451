@@ -1,5 +1,5 @@
 <?php
-require(__DIR__ . "/../../lib/functions.php");
+require(__DIR__ . "/../../partials/nav.php");
 ?>
 
 <form onsubmit="return validate(this)" method="POST">
@@ -40,7 +40,7 @@ if (empty($email)) {
    $hasError = true;
 }
 if (empty($password)) {
-   echo "Passowrd must not be empty";
+   echo "Password must not be empty";
    $hasError = true;
 }
 if (empty($confirm)) {
