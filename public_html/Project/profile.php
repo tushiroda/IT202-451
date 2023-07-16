@@ -25,6 +25,9 @@ if (isset($_POST["save"])) {
       try {
          $stmt->execute($params);
          flash("Profile saved", "success");
+         if ($email != $_SESSION["user"]["email"]) {
+            flash("Email updated", "success");
+         }
          if ($username != $_SESSION["user"]["username"]) {
             flash("Username updated", "success");
          }
