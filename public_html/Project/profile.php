@@ -25,6 +25,9 @@ if (isset($_POST["save"])) {
       try {
          $stmt->execute($params);
          flash("Profile saved", "success");
+         if ($username != $_SESSION["user"]["username"]) {
+            flash("Username updated", "success");
+         }
       } catch (Exception $e) {
          users_check_duplicate($e->errorInfo);
       }
@@ -125,6 +128,10 @@ $username = get_username();
       let con = form.confirmPassword.value;
       let isValid = true;
       //TODO add other client side validation....
+      if (!isValidUserame) {
+         flash("Invalid username");
+         isValid = false;
+      }
 
       //example of using flash via javascript
       //find the flash container, create a new element, appendChild
