@@ -1,17 +1,21 @@
 .alert-success {
-   background-color: green
+   background-color: green;
+   color: black;
 }
 
 .alert-warning {
    background-color: yellow;
+   color: black;
 }
 
 .alert-danger {
    background-color: red;
+   color: black;
 }
 
 .alert-info {
    background-color: teal;
+   color: black;
 }
 
 nav li {
