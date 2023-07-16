@@ -11,32 +11,32 @@
 ### Proposal Checklist and Evidence
 
 - Milestone 1 https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
-   - [x] \()Users can register new accounts
+   - [x] \(06/20/2023) Users can register new accounts
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/register.php](https://tu34-prod.herokuapp.com/public_html/Project/register.php)
-   - Users can login to their account
+   - [x] \(07/01/2023) Users can login to their account
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/login.php](https://tu34-prod.herokuapp.com/public_html/Project/login.php)
-   - User can logout
+   - [x] \(07/01/2023) User can logout
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/logout.php](https://tu34-prod.herokuapp.com/public_html/Project/logout.php)
-   - Basic security rules implemented
+   - [x] \(07/02/2023) Basic security rules implemented
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/profile.php](https://tu34-prod.herokuapp.com/public_html/Project/profile.php)
-   - Basic roles implemented
+   - [x] \(07/16/2023) Basic roles implemented
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/admin/create_role.php](https://tu34-prod.herokuapp.com/public_html/Project/admin/create_role.php)
-   - Basic styles applied
+   - [x] \(07/16/2023) Basic styles applied
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/home.php](https://tu34-prod.herokuapp.com/public_html/Project/home.php)
       - [https://tu34-prod.herokuapp.com/public_html/Project/styles.css](https://tu34-prod.herokuapp.com/public_html/Project/styles.css)
-   - Output messages should be user friendly
+   - [x] \(07/09/2023) Output messages should be user friendly
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/register.php](https://tu34-prod.herokuapp.com/public_html/Project/register.php)
-   - User can see their profile
+   - [x] \(07/02/2023) User can see their profile
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/profile.php](https://tu34-prod.herokuapp.com/public_html/Project/profile.php)
-   - User can edit their profile
+   - [x] \(07/02/2023) User can edit their profile
       - [Milestone 1](https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md)
       - [https://tu34-prod.herokuapp.com/public_html/Project/profile.php](https://tu34-prod.herokuapp.com/public_html/Project/profile.php)
 
