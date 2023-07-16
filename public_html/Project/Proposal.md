@@ -10,8 +10,26 @@
  
 ### Proposal Checklist and Evidence
 
-- Milestone 1
-  - (add link to milestone1.md from milestone1 branch)  
+- Milestone 1 https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - Users can register new accounts
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - Users can login to their account
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - User can logout
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - Basic security rules implemented
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - Basic roles implemented
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - Basic styles applied
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - Output messages should be user friendly
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - User can see their profile
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+  - User can edit their profile
+    - [Milestone 1] https://github.com/TaeshinUshiroda/IT202-451/blob/Milestone1/public_html/Project/milestone1.md
+
 - Milestone 2
   - (add link to milestone2.md from milestone2 branch)
 - Milestone 3
