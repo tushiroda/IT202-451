@@ -1,0 +1,55 @@
+.alert-success {
+   background-color: green;
+   color: black;
+}
+
+.alert-warning {
+   background-color: yellow;
+   color: black;
+}
+
+.alert-danger {
+   background-color: red;
+   color: black;
+}
+
+.alert-info {
+   background-color: teal;
+   color: black;
+}
+
+nav li {
+   display: inline;
+   margin: 10px;
+   background-color: rgb(49, 49, 49);
+   font-family: 'Courier New', Courier, monospace;
+}
+
+nav li a {
+   color: rgb(255, 239, 239);
+}
+
+input {
+   border-radius: 5px;
+}
+
+body {
+   background-color: rgb(7, 18, 32);
+   color: rgb(210, 210, 210);
+   font-family: 'Courier New', Courier, monospace;
+}
+
+body li {
+   padding: 10px;
+}
+
+th {
+   border: 1px solid;
+   padding-left: 25px;
+   padding-right: 25px;
+}
+
+td {
+   border: 1px solid gray;
+   text-align: center;
+}

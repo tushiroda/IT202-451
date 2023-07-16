@@ -1,10 +1,13 @@
 <h1>Database Helper Tool</h1>
 <details>
    <summary>Info (About the tool)</summary>
-   <p>The scope of this tool is to help us separate our structural queries into separate files for better organization.</p>
-   <p>This tools job is to attempt to read all of those files and determine which ones are needed to run against your database to synchronize the structure.</p>
+   <p>The scope of this tool is to help us separate our structural queries into separate files for better organization.
+   </p>
+   <p>This tools job is to attempt to read all of those files and determine which ones are needed to run against your
+      database to synchronize the structure.</p>
    <p>This tool only works for queries that take zero parameters.</p>
-   <p>It can be used to preload some data via inserts, but those queries <em>MUST</em> but crafted in such a way that you don't generate duplicates during each run.</p>
+   <p>It can be used to preload some data via inserts, but those queries <em>MUST</em> but crafted in such a way that
+      you don't generate duplicates during each run.</p>
    <p>Files should be <a href="https://en.wikipedia.org/wiki/Idempotence">Idempotent</a></p>
 </details>
 <br><br>
@@ -60,9 +63,11 @@ try {
          }
       }
       foreach ($sql as $key => $value) {
-?>
+         ?>
          <details>
-            <summary><?php echo "Running: $key"; ?></summary>
+            <summary>
+               <?php echo "Running: $key"; ?>
+            </summary>
             <pre><code><?php echo $value; ?></code></pre>
          </details>
          <?php
@@ -97,11 +102,13 @@ try {
          $error = $stmt->errorInfo();
          ?>
          <details style="margin-left: 3em">
-            <summary>Status: <?php echo ($error[0] === "00000" ? "Success" : "Error"); ?></summary>
+            <summary>Status:
+               <?php echo ($error[0] === "00000" ? "Success" : "Error"); ?>
+            </summary>
             <pre><?php echo var_export($error, true); ?></pre>
          </details>
          <br>
-<?php
+         <?php
       }
       echo "<p>Init complete, used approximately $count db calls.</p>";
    } else {
