@@ -18,10 +18,14 @@
    color: black;
 }
 
+nav div {
+   background-color: rgb(49, 49, 49);
+}
+
 nav li {
    display: inline;
    margin: 10px;
-   background-color: rgb(49, 49, 49);
+   background-color: gray;
    font-family: 'Courier New', Courier, monospace;
 }
 

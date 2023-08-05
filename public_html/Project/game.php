@@ -1,9 +1,14 @@
-<canvas id="canvas" width="900" height="600" tabindex="1"></canvas>
+<?php
+require(__DIR__ . "/../../partials/nav.php");
+?>
+<div class="h1">Pong</div>
+
+<canvas id="canvas" width="900" height="570" tabindex="1"></canvas>
 
 <style>
    #canvas {
       width: 900px;
-      height: 600px;
+      height: 570px;
       border: 1px solid black;
    }
 </style>
@@ -103,7 +108,11 @@
 
       // Up/down bounce
       var diff = ballCenter - paddleCenter;
-      ball.sY = diff / 8;
+      if (diff > 0)
+         diff += ball.s;
+      else
+         diff -= ball.s;
+      ball.sY = diff / 6;
    }
 
    // Listen for keydown events
@@ -203,9 +212,11 @@
       ball.y += ball.sY;
 
       // Bounce the ball off the top/bottom
-      if (ball.y < 0 || ball.y + ball.h > canvas.height) {
-         ball.sY *= -1;
-      }
+      if (ball.y < 0)
+         ball.sY = Math.abs(ball.sY);
+      if (ball.y + ball.h > canvas.height)
+         ball.sY = -Math.abs(ball.sY);
+
       // Don't let the paddles go off screen
       [leftPaddle, rightPaddle].forEach(function (paddle) {
          if (paddle.y < 0) {
