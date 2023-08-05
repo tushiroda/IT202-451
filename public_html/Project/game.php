@@ -2,7 +2,6 @@
 require(__DIR__ . "/../../partials/nav.php");
 ?>
 <div class="h1">Pong</div>
-
 <canvas id="canvas" width="900" height="570" tabindex="1"></canvas>
 
 <style>
@@ -58,6 +57,8 @@ require(__DIR__ . "/../../partials/nav.php");
    // Keep track of the score
    var leftScore = 0;
    var rightScore = 0;
+   var pointsToWin = 1;
+   var pickedUp = 0;
 
    // Create the ball
    var ballLength = 15;
@@ -86,7 +87,7 @@ require(__DIR__ . "/../../partials/nav.php");
    // Bounce the ball off of a paddle
    function bounceBall(side) {
       // Increase and reverse the X speed
-      // TODO tu34 7/9/2023
+      // tu34 7/9/2023
       // Add variable to keep track of ball "center" to compare to paddle
       var ballCenter = ball.y + ball.h / 2;
       var paddleCenter;
@@ -168,16 +169,47 @@ require(__DIR__ . "/../../partials/nav.php");
       context.fillStyle = '#000000';
       context.font = '24px Arial';
       context.textAlign = 'center';
-      if (rightScore === 5) {
+      //sum player score
+      score = 0;
+
+      //TODO left off here change scores
+      if (rightScore > leftScore) {
          context.fillText('You lose!', canvas.width / 2, canvas.height / 2);
-         score = 0;
       }
       else {
          context.fillText('You win!', canvas.width / 2, canvas.height / 2);
-         score = leftScore + (5 - rightScore);
+         score += leftScore * 100;
+         score += (5 - rightScore) * 50;
+         score += pickedUp * 25;
       }
       context.fillText('Score: ' + score, canvas.width / 2, canvas.height * 2 / 3);
+
+      fetchRequest(score);
    }
+
+   //TODO Post data to table
+   function fetchRequest(score) {
+      let val = score;
+      fetch("api/save_score.php", {
+         method: "POST",
+         //if testing on a different domain or local you'll have to set this header
+         //refer here: https://stackoverflow.com/a/13005183
+         headers: {
+            "Content-type": "application/x-www-form-urlencoded",
+            "X-Requested-With": "XMLHttpRequest",
+         },
+         body: `score=${val}`
+      }).then(async resp => {
+         //uses a promise so we need to await it: https://www.w3schools.com/js/js_promise.asp
+         let json = await resp.text(); //can only call this once
+
+         console.log(resp, json);
+         // alert(json);
+      }).catch(err => {
+         alert("Error: " + err);
+      })
+   }
+
 
    // Clear the canvas
    function erase() {
@@ -185,7 +217,7 @@ require(__DIR__ . "/../../partials/nav.php");
       context.fillRect(0, 0, canvas.width, canvas.height);
    }
 
-   //TODO tu34 7/9/2023 keep track of powerup
+   //tu34 7/9/2023 keep track of powerup
    var spawned = false;
    var powerup;
 
@@ -228,7 +260,7 @@ require(__DIR__ . "/../../partials/nav.php");
       });
 
       // Randomly spawn powerup
-      // TODO tu34 7/9/2023
+      // tu34 7/9/2023
       if (!spawned) {
          if (Math.random() < 0.01) {
             var powerUpSize = 50;
@@ -243,6 +275,7 @@ require(__DIR__ . "/../../partials/nav.php");
                spawned = false;
                if (ball.sX > 0) {
                   leftPaddle.h += 10;
+                  pickedUp += 1;
                }
                else {
                   rightPaddle.h += 10;
@@ -252,7 +285,7 @@ require(__DIR__ . "/../../partials/nav.php");
       }
 
       // Bounce the ball off the paddles
-      // TODO tu34 7/9/2023
+      // tu34 7/9/2023
       // New variable to fix a bug where ball gets "hit" by paddle multiple times
       // if the ball hits the top/bottom of the paddle rather than the side
       var tracker = "";
@@ -296,7 +329,7 @@ require(__DIR__ . "/../../partials/nav.php");
       context.textAlign = 'right';
       context.fillText('Score: ' + rightScore, canvas.width - 5, 24);
       // End the game or keep going
-      if (leftScore === 5 || rightScore === 5) {
+      if (leftScore === pointsToWin || rightScore === pointsToWin) {
          endGame();
       } else {
          window.requestAnimationFrame(draw);
