@@ -1,5 +1,7 @@
 <?php
 require_once(__DIR__ . "/../../partials/nav.php");
+require_once(__DIR__ . "/../../partials/scoreTable.php");
+$_SESSION['filename'] = 'profile';
 is_logged_in(true);
 ?>
 <?php
@@ -100,6 +102,7 @@ $email = get_user_email();
 $username = get_username();
 ?>
 <div class="container-fluid">
+   <br>
    <h1>Profile</h1>
    <form method="POST" onsubmit="return validate(this);">
       <div class="col-xs-5">
@@ -111,8 +114,9 @@ $username = get_username();
          <input class="form-control" type="text" name="username" id="username" value="<?php se($username); ?>" />
       </div>
       <!-- DO NOT PRELOAD PASSWORD -->
+      <br>`
       <br>
-      <div class="mb-3">Password Reset</div>
+      <h2 class="mb-3">Password Reset</h2>
       <div class="mb-3">
          <label class="form-label" for="cp">Current Password</label>
          <input class="form-control" type="password" name="currentPassword" id="cp" />
