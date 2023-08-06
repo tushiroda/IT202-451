@@ -63,7 +63,7 @@ is_logged_in(true);
    // Keep track of the score
    var leftScore = 0;
    var rightScore = 0;
-   var pointsToWin = 1;
+   var pointsToWin = 5;
    var pickedUp = 0;
 
    // Create the ball
