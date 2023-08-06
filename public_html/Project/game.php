@@ -1,25 +1,24 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
+is_logged_in(true);
 ?>
 <div class="h1">Play Pong</div>
 <canvas id="canvas" width="800" height="600" tabindex="1"></canvas>
 
 <style>
    #canvas {
-      padding: 0px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 5%;
       display: block;
       width: 800px;
       height: 600px;
-      border: 1px solid black;
-      background-color: gray;
    }
 </style>
 
 <script>
-   canvas.fillStyle = "black";
+   var timer = 300;
+
    // Canvas Pong
    var canvas = document.getElementById('canvas');
    var context = canvas.getContext('2d');
@@ -56,21 +55,21 @@ require(__DIR__ . "/../../partials/nav.php");
    }
 
    // Create the paddles
-   var paddleWidth = 25;
-   var paddleHeight = 100;
-   var leftPaddle = makeRect(25, canvas.height / 2 - paddleHeight / 2, paddleWidth, paddleHeight, 5, '#BC0000');
-   var rightPaddle = makeRect(canvas.width - paddleWidth - 25, canvas.height / 2 - paddleHeight / 2, paddleWidth, paddleHeight, 5, '#0000BC');
+   var paddleWidth = 15;
+   var paddleHeight = 70;
+   var leftPaddle = makeRect(25, canvas.height / 2 - paddleHeight / 2, paddleWidth, paddleHeight, 9, '#6E8EAF');
+   var rightPaddle = makeRect(canvas.width - paddleWidth - 25, canvas.height / 2 - paddleHeight / 2, paddleWidth, paddleHeight, 9, '#895B06');
 
    // Keep track of the score
    var leftScore = 0;
    var rightScore = 0;
-   var pointsToWin = 1;
+   var pointsToWin = 5;
    var pickedUp = 0;
 
    // Create the ball
    var ballLength = 15;
    var ballSpeed = 4;
-   var ball = makeRect(0, 0, ballLength, ballLength, ballSpeed, '#000000');
+   var ball = makeRect(0, 0, ballLength, ballLength, ballSpeed, '#FFFFFF');
 
    // Modify the ball object to have two speed properties, one for X and one for Y
    ball.sX = ballSpeed;
@@ -98,18 +97,22 @@ require(__DIR__ . "/../../partials/nav.php");
       // Add variable to keep track of ball "center" to compare to paddle
       var ballCenter = ball.y + ball.h / 2;
       var paddleCenter;
+      let speedIncrease = 1;
+      if (Math.random() <= 0.5) {
+         speedIncrease = 0;
+      }
       // Change bounce properties so it's more accurate to original game
       // Ball direction depends on where it hits the paddle
       if (side == "rightPaddle") {
          ball.sX = -Math.abs(ball.sX);
-         ball.sX -= 1;
+         ball.sX -= speedIncrease;
          // Compare ball location to paddle location to determine the up/down bounce
          paddleCenter = rightPaddle.y + rightPaddle.h / 2;
       }
 
       if (side == "leftPaddle") {
          ball.sX = Math.abs(ball.sX);
-         ball.sX += 1;
+         ball.sX += speedIncrease;
          // Compare ball location to paddle location to determine the up/down bounce
          paddleCenter = leftPaddle.y + leftPaddle.h / 2;
       }
@@ -120,7 +123,7 @@ require(__DIR__ . "/../../partials/nav.php");
          diff += ball.s;
       else
          diff -= ball.s;
-      ball.sY = diff / 6;
+      ball.sY = diff / 3;
    }
 
    // Listen for keydown events
@@ -147,17 +150,22 @@ require(__DIR__ . "/../../partials/nav.php");
    function menu() {
       erase();
       // Show the menu
-      context.fillStyle = '#000000';
-      context.font = '24px Arial';
+      context.fillStyle = '#FFFFFF';
+      context.font = '40px Monospace';
       context.textAlign = 'center';
       context.fillText('PONG', canvas.width / 2, canvas.height / 4);
-      context.font = '18px Arial';
+      context.font = '28px Monospace';
       context.fillText('Click to Start', canvas.width / 2, canvas.height / 3);
-      context.font = '14px Arial';
+      context.font = '18px Monospace';
       context.textAlign = 'center';
-      context.fillText('Player 1: W (up) and S (down)', canvas.width / 2, (canvas.height / 3) * 2);
+      context.fillText('Controls: W (up) and S (down)', canvas.width / 2, (canvas.height / 3) * 2);
       // Start the game on a click
       canvas.addEventListener('click', startGame);
+   }
+
+   //keep track of time for score
+   function scoreTimer() {
+      timer -= 1;
    }
 
    // Start the game
@@ -168,18 +176,20 @@ require(__DIR__ . "/../../partials/nav.php");
       resetBall();
       // Kick off the game loop
       draw();
+      window.gametime = setInterval(scoreTimer, 400);
    }
 
    // Show the end game screen
    function endGame() {
+      clearInterval(window.gametime);
       erase();
-      context.fillStyle = '#000000';
-      context.font = '24px Arial';
+      context.fillStyle = '#FFFFFF';
+      context.font = '40px Monospace';
       context.textAlign = 'center';
       //sum player score
       score = 0;
 
-      //TODO left off here change scores
+      // left off here change scores
       if (rightScore > leftScore) {
          context.fillText('You lose!', canvas.width / 2, canvas.height / 2);
       }
@@ -188,13 +198,13 @@ require(__DIR__ . "/../../partials/nav.php");
          score += leftScore * 100;
          score += (5 - rightScore) * 50;
          score += pickedUp * 25;
+         score += timer;
+         fetchRequest(score)
       }
       context.fillText('Score: ' + score, canvas.width / 2, canvas.height * 2 / 3);
-
-      fetchRequest(score);
    }
 
-   //TODO Post data to table
+   // Post data to table
    function fetchRequest(score) {
       let val = score;
       fetch("api/save_score.php", {
@@ -220,7 +230,7 @@ require(__DIR__ . "/../../partials/nav.php");
 
    // Clear the canvas
    function erase() {
-      context.fillStyle = '#FFFFFF';
+      context.fillStyle = '#243342';
       context.fillRect(0, 0, canvas.width, canvas.height);
    }
 
@@ -230,9 +240,16 @@ require(__DIR__ . "/../../partials/nav.php");
 
    // Main draw loop
    function draw() {
+      erase();
+      middleLine = makeRect(canvas.width / 2 - 1, 0, 2, canvas.height, 0, 'gray'); //TODO
       ballCenter = ball.y + ball.h / 2;
       rightCenter = rightPaddle.y + rightPaddle.h / 2;
-      erase();
+      rightDiff = rightCenter - ballCenter;
+      middleLine.draw();
+      rightSpeed = rightPaddle.s;
+      if (Math.abs(rightDiff) < Math.abs(rightPaddle.s)) {
+         rightSpeed = rightDiff;
+      }
       // Move the paddles
       if (keys.W) {
          leftPaddle.y -= leftPaddle.s;
@@ -241,10 +258,10 @@ require(__DIR__ . "/../../partials/nav.php");
          leftPaddle.y += leftPaddle.s;
       }
       if (rightCenter > ballCenter) {
-         rightPaddle.y -= rightPaddle.s;
+         rightPaddle.y -= rightSpeed;
       }
       if (rightCenter < ballCenter) {
-         rightPaddle.y += rightPaddle.s;
+         rightPaddle.y += rightSpeed;
       }
       // Move the ball
       ball.x += ball.sX;
@@ -269,9 +286,9 @@ require(__DIR__ . "/../../partials/nav.php");
       // Randomly spawn powerup
       // tu34 7/9/2023
       if (!spawned) {
-         if (Math.random() < 0.01) {
-            var powerUpSize = 50;
-            powerup = makeRect(canvas.width / 2, (Math.random() * 500) + 50, powerUpSize, powerUpSize, 0, '#009999');
+         if (Math.random() < 0.005) {
+            var powerUpSize = 40;
+            powerup = makeRect((canvas.width - powerUpSize) / 2, (Math.random() * 500) + 50, powerUpSize, powerUpSize, 0, '#009999');
             spawned = true;
          }
       } else {
@@ -282,10 +299,12 @@ require(__DIR__ . "/../../partials/nav.php");
                spawned = false;
                if (ball.sX > 0) {
                   leftPaddle.h += 10;
+                  leftPaddle.y -= 5;
                   pickedUp += 1;
                }
                else {
                   rightPaddle.h += 10;
+                  rightPaddle.y -= 5;
                }
             }
          }
@@ -297,7 +316,7 @@ require(__DIR__ . "/../../partials/nav.php");
       // if the ball hits the top/bottom of the paddle rather than the side
       var tracker = "";
 
-      if (ball.y + ball.h / 2 >= leftPaddle.y && ball.y + ball.h / 2 <= leftPaddle.y + leftPaddle.h) {
+      if (ball.y + ball.h >= leftPaddle.y && ball.y <= leftPaddle.y + leftPaddle.h) {
          if (ball.x <= leftPaddle.x + leftPaddle.w) {
             if (tracker != "leftPaddle") {
                bounceBall("leftPaddle");
@@ -305,7 +324,7 @@ require(__DIR__ . "/../../partials/nav.php");
             }
          }
       }
-      if (ball.y + ball.h / 2 >= rightPaddle.y && ball.y + ball.h / 2 <= rightPaddle.y + rightPaddle.h) {
+      if (ball.y + ball.h >= rightPaddle.y && ball.y <= rightPaddle.y + rightPaddle.h) {
          if (ball.x + ball.w >= rightPaddle.x) {
             if (tracker != "rightPaddle") {
                bounceBall("rightPaddle");
@@ -317,11 +336,9 @@ require(__DIR__ . "/../../partials/nav.php");
       if (ball.x < leftPaddle.x) {
          rightScore++;
          resetBall();
-         ball.sX *= -1;
       } else if (ball.x + ball.w > rightPaddle.x + rightPaddle.w) {
          leftScore++;
          resetBall();
-         ball.sX *= -1;
       }
       // Draw the paddles and ball
       leftPaddle.draw();
@@ -329,12 +346,10 @@ require(__DIR__ . "/../../partials/nav.php");
       ball.draw();
 
       // Draw the scores
-      context.fillStyle = '#000000';
-      context.font = '24px Arial';
-      context.textAlign = 'left';
-      context.fillText('Score: ' + leftScore, 5, 24);
-      context.textAlign = 'right';
-      context.fillText('Score: ' + rightScore, canvas.width - 5, 24);
+      context.fillStyle = '#FFFFFF';
+      context.font = '50px Monospace';
+      context.textAlign = 'center';
+      context.fillText(leftScore + '   ' + rightScore, canvas.width / 2, 50);
       // End the game or keep going
       if (leftScore === pointsToWin || rightScore === pointsToWin) {
          endGame();
@@ -346,5 +361,4 @@ require(__DIR__ . "/../../partials/nav.php");
    // Show the menu to start the game
    menu();
    canvas.focus();
-
 </script>

@@ -97,3 +97,13 @@ nav li a {
    color: rgb(255, 239, 239);
    text-transform: none;
 }
+
+/* Submit buttons */
+.btn {
+   margin-left: 5%;
+}
+
+/* canvas for game */
+canvas {
+   outline: white solid 1px;
+}
