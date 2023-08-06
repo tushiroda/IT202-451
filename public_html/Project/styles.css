@@ -18,23 +18,8 @@
    color: black;
 }
 
-nav li {
-   display: inline;
-   margin: 10px;
-   background-color: rgb(49, 49, 49);
-   font-family: 'Courier New', Courier, monospace;
-}
-
-nav li a {
-   color: rgb(255, 239, 239);
-}
-
-input {
-   border-radius: 5px;
-}
-
 body {
-   background-color: rgb(7, 18, 32);
+   background-color: #141a2e;
    color: rgb(210, 210, 210);
    font-family: 'Courier New', Courier, monospace;
 }
@@ -43,8 +28,11 @@ body li {
    padding: 10px;
 }
 
+/* Admin tables */
 th {
    border: 1px solid;
+   text-transform: capitalize;
+   text-align: center;
    padding-left: 25px;
    padding-right: 25px;
 }
@@ -52,4 +40,86 @@ th {
 td {
    border: 1px solid gray;
    text-align: center;
+}
+
+/* For the scoreboard */
+/* scoreboard display options */
+.container {
+   text-align: center;
+}
+
+div li {
+   display: inline;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+div li a {
+   color: gray;
+}
+
+/* actual table */
+
+tr {
+   color: white;
+}
+
+thead {
+   color: white;
+}
+
+tbody {
+   color: white;
+}
+
+.card {
+   background-color: #161F27;
+   outline-color: black;
+   color: white;
+}
+
+.card-title {
+   text-align: center;
+}
+
+/* Margins?*/
+div {
+   padding-left: 6%;
+   padding-right: 6%;
+}
+
+h1,
+h2 {
+   padding-left: 3%;
+}
+
+/* navbar */
+nav div {
+   background-color: #172626;
+}
+
+nav div div {
+   padding-left: 10px;
+}
+
+nav div a {
+   padding-left: 20px;
+   font-size: medium;
+   color: white;
+}
+
+nav li {
+   display: inline;
+   margin: 10px;
+   background-color: #2f4f4f;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+/* Submit buttons */
+.btn {
+   margin-left: 6%;
+}
+
+/* canvas for game */
+canvas {
+   outline: white solid 1px;
 }
