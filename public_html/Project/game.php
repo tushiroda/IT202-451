@@ -2,7 +2,7 @@
 require(__DIR__ . "/../../partials/nav.php");
 ?>
 <div class="h1">Play Pong</div>
-<canvas id="canvas" width="1100" height="570" tabindex="1"></canvas>
+<canvas id="canvas" width="800" height="600" tabindex="1"></canvas>
 
 <style>
    #canvas {
@@ -11,13 +11,15 @@ require(__DIR__ . "/../../partials/nav.php");
       margin-right: auto;
       margin-bottom: 5%;
       display: block;
-      width: 1100px;
-      height: 570px;
+      width: 800px;
+      height: 600px;
       border: 1px solid black;
+      background-color: gray;
    }
 </style>
 
 <script>
+   canvas.fillStyle = "black";
    // Canvas Pong
    var canvas = document.getElementById('canvas');
    var context = canvas.getContext('2d');
