@@ -1,8 +1,7 @@
 <?php
 require_once(__DIR__ . "/../../partials/nav.php");
-$_SESSION['duration'] = 'latest';
+$_SESSION['filename'] = 'profile';
 require_once(__DIR__ . "/../../partials/scoreTable.php");
-unset($_SESSION['duration']);
 is_logged_in(true);
 ?>
 <?php
@@ -115,7 +114,7 @@ $username = get_username();
          <input class="form-control" type="text" name="username" id="username" value="<?php se($username); ?>" />
       </div>
       <!-- DO NOT PRELOAD PASSWORD -->
-      <br>
+      <br>`
       <br>
       <h2 class="mb-3">Password Reset</h2>
       <div class="mb-3">
