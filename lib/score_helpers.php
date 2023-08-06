@@ -4,9 +4,7 @@
 function get_top_10($duration = "day")
 {
    $d = "day";
-   //be very careful passing in a variable directly to SQL, I ensure it's a specific value from the in_array() above
-   //Note: This is residual from using Option 1 and INTERVAL to generate the date offsets
-   //but it's still good to keep here
+   //tu34 8/7/2023
    if (in_array($duration, ["day", "week", "month", "lifetime"])) {
       //variable is safe
       $d = $duration;
@@ -66,7 +64,7 @@ function get_best_score($user_id)
 
 function get_latest_scores($user_id, $limit = 10)
 {
-   //I'm capping my limit to 1-50
+   //tu34 8/7/2023
    if ($limit < 1 || $limit > 50) {
       $limit = 10;
    }

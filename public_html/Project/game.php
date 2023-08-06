@@ -63,7 +63,7 @@ is_logged_in(true);
    // Keep track of the score
    var leftScore = 0;
    var rightScore = 0;
-   var pointsToWin = 5;
+   var pointsToWin = 1;
    var pickedUp = 0;
 
    // Create the ball
@@ -186,25 +186,26 @@ is_logged_in(true);
       context.fillStyle = '#FFFFFF';
       context.font = '40px Monospace';
       context.textAlign = 'center';
-      //sum player score
+      // tu34 8/7/2023
+      // sum player score
       score = 0;
+      score += leftScore * 100;
+      score += (5 - rightScore) * 50;
+      score += pickedUp * 25;
+      score += timer;
 
-      // left off here change scores
       if (rightScore > leftScore) {
          context.fillText('You lose!', canvas.width / 2, canvas.height / 2);
+         score = Math.floor(score / 3);
       }
       else {
          context.fillText('You win!', canvas.width / 2, canvas.height / 2);
-         score += leftScore * 100;
-         score += (5 - rightScore) * 50;
-         score += pickedUp * 25;
-         score += timer;
-         fetchRequest(score)
       }
       context.fillText('Score: ' + score, canvas.width / 2, canvas.height * 2 / 3);
+      fetchRequest(score)
    }
 
-   // Post data to table
+   // tu34 8/7/2023 Post data to table
    function fetchRequest(score) {
       let val = score;
       fetch("api/save_score.php", {
@@ -221,6 +222,8 @@ is_logged_in(true);
          let json = await resp.text(); //can only call this once
 
          console.log(resp, json);
+         context.font = '20px Monospace';
+         context.fillText('Score Saved', canvas.width / 2, canvas.height * 2 / 3 + 40)
          // alert(json);
       }).catch(err => {
          alert("Error: " + err);

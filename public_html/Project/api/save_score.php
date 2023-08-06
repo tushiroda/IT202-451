@@ -2,14 +2,9 @@
 require_once(__DIR__ . "/../../../lib/functions.php");
 error_log("save_score received data: " . var_export($_REQUEST, true));
 
-//handle the potentially incoming post request
+// tu34 8/7/2023 handle the potentially incoming post request
 $score = (int) se($_POST, "score", 0, false);
-
-//if data is valid pass it to save_score
 save_score($score);
-
-//This demo will be setup to demonstrate a front end game
-//vs one where the logic is mostly done on the back end
 function save_score($score, $echo = true)
 {
    $response = ["status" => 400, "message" => "Unhandled error"];
