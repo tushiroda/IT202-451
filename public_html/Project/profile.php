@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . "/../../partials/nav.php");
-require_once(__DIR__ . "/../../partials/scoreTable.php");
 $_SESSION['filename'] = 'profile';
+require_once(__DIR__ . "/../../partials/scoreTable.php");
 is_logged_in(true);
 ?>
 <?php

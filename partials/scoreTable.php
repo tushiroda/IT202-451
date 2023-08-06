@@ -9,6 +9,8 @@ switch ($filename) {
    case 'profile':
       $duration = 'latest';
       break;
+   default:
+      break;
 }
 
 //requires a duration to be set
