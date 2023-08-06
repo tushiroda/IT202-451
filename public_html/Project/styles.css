@@ -31,7 +31,6 @@ body li {
 /* Admin tables */
 th {
    border: 1px solid;
-   text-transform: capitalize;
    text-align: center;
    padding-left: 25px;
    padding-right: 25px;
@@ -43,22 +42,6 @@ td {
 }
 
 /* For the scoreboard */
-/* scoreboard display options */
-.container {
-   text-align: center;
-}
-
-div li {
-   display: inline;
-   font-family: 'Courier New', Courier, monospace;
-}
-
-div li a {
-   color: gray;
-}
-
-/* actual table */
-
 tr {
    color: white;
 }
@@ -77,19 +60,15 @@ tbody {
    color: white;
 }
 
-.card-title {
-   text-align: center;
-}
-
 /* Margins?*/
 div {
-   padding-left: 6%;
-   padding-right: 6%;
+   padding-left: 5%;
+   padding-right: 5%;
 }
 
 h1,
 h2 {
-   padding-left: 3%;
+   padding-left: 2%;
 }
 
 /* navbar */
@@ -104,7 +83,7 @@ nav div div {
 nav div a {
    padding-left: 20px;
    font-size: medium;
-   color: white;
+   text-transform: uppercase;
 }
 
 nav li {
@@ -114,9 +93,14 @@ nav li {
    font-family: 'Courier New', Courier, monospace;
 }
 
+nav li a {
+   color: rgb(255, 239, 239);
+   text-transform: none;
+}
+
 /* Submit buttons */
 .btn {
-   margin-left: 6%;
+   margin-left: 5%;
 }
 
 /* canvas for game */
