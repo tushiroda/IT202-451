@@ -12,7 +12,7 @@ function get_top_10($duration = "day")
       $d = $duration;
    }
    $db = getDB();
-   $query = "SELECT user_id, username, score, Scores.created FROM Scores JOIN Users ON Scores.user_id = Users.id";
+   $query = "SELECT ROW_NUMBER() OVER(ORDER BY score DESC) Ranking, username, score, Scores.created FROM Scores JOIN Users ON Scores.user_id = Users.id";
    if ($d === "day") {
       $query .= " WHERE Scores.created >= addtime(CURDATE(), '00:00:00') AND Scores.created <= addtime(CURDATE(), '23:59:59')";
    } else if ($d === "week") {

@@ -1,22 +1,14 @@
 <?php
 //requires functions.php
 require_once(__DIR__ . "/../lib/functions.php");
-$filename = $_SESSION['filename'];
 
 //Depending on the file using the table, choose what to display
 //Only for one page though?...
-switch ($filename) {
-   case 'profile':
-      $duration = 'latest';
-      break;
-   default:
-      break;
-}
+if (isset($_SESSION['duration'])) {
+   $duration = $_SESSION['duration'];
+} else
+   $duration = "day";
 
-//requires a duration to be set
-if (!isset($duration)) {
-   $duration = "day"; //choosing to default to day
-}
 
 if (in_array($duration, ["day", "week", "month", "lifetime"])) {
    $results = get_top_10($duration);
@@ -54,6 +46,18 @@ switch ($duration) {
             <?php se($title); ?>
          </div>
       </div>
+
+      <!-- If it's not the profile page, show options for switching between daily, weekls, etc. boards -->
+      <?php if ($duration != 'latest'): ?>
+         <div class="container">
+            <li class="scoreoption"> <a href="<?php echo get_url('home.php'); ?>?duration=day">Daily</a></li>
+            <li class="scoreoption"> <a href="<?php echo get_url('home.php'); ?>?duration=week">Weekly</a></li>
+            <li class="scoreoption"> <a href="<?php echo get_url('home.php'); ?>?duration=month">Monthly</a></li>
+            <li class="scoreoption"> <a href="<?php echo get_url('home.php'); ?>?duration=lifetime">All Time</a></li>
+         </div>
+         <br>
+      <?php endif; ?>
+
       <div class="card-text">
          <table class="table">
             <?php if (count($results) == 0): ?>
