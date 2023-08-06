@@ -1,12 +1,17 @@
 <?php
 require(__DIR__ . "/../../partials/nav.php");
 ?>
-<div class="h1">Pong</div>
-<canvas id="canvas" width="900" height="570" tabindex="1"></canvas>
+<div class="h1">Play Pong</div>
+<canvas id="canvas" width="1100" height="570" tabindex="1"></canvas>
 
 <style>
    #canvas {
-      width: 900px;
+      padding: 0px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 5%;
+      display: block;
+      width: 1100px;
       height: 570px;
       border: 1px solid black;
    }
